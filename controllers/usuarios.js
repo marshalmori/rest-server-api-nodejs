@@ -61,11 +61,9 @@ const usuariosPatch = (req = request, res = response) => {
 
 const usuariosDelete = async (req = request, res = response) => {
   const { id } = req.params;
-
   const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 
-  // res.json(usuario);
-  res.json({ msg: "Dados do usuário foram atualizados com sucesso." });
+  res.json(usuario);
 };
 
 module.exports = {
