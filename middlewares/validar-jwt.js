@@ -40,7 +40,7 @@ const validarJWT = async (req, res = response, next) => {
     });
   }
 
-  console.log(token);
+  //   console.log(token);
 
   next();
 };
