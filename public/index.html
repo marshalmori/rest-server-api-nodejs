@@ -53,7 +53,9 @@
                     console.log(resp);
                     localStorage.setItem('email', resp.usuario.correo);
                 })
-                .catch(console.warn)
+                .catch((error) => {
+                    console.log(error);
+                })
         }
 
         const button = document.getElementById('google_signout');
