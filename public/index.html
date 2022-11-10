@@ -14,7 +14,8 @@
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <div id="g_id_onload" data-client_id="297868993079-td2p2b7tam4m25hkn7n4jdgjatrjhmo4.apps.googleusercontent.com"
-        data-auto_prompt="false" data-callback="handleCredentialResponse">
+        data-auto_prompt="false" data-callback="handleCredentialResponse"
+        data-login_uri="https://rest-server-api-nodejs.herokuapp.com">
     </div>
     <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
         data-shape="rectangular" data-logo_alignment="left">
@@ -66,7 +67,7 @@
             })
         }
 
-        const googleClientId = () => { process.env.GOOGLE_CLIENT_ID };
+
 
     </script>
 </body>
