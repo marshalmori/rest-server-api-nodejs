@@ -42,7 +42,7 @@ const validarJWT = async (req, res = response, next) => {
 
   //   console.log(token);
 
-  next();
+  // next();
 };
 
 module.exports = { validarJWT };
