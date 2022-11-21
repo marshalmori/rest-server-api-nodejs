@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 const { crearCategoria } = require("../controllers/categorias");
+const { existeCategoria } = require("../helpers/db-validators");
 const { validarCampos, validarJWT } = require("../middlewares");
 
 const router = Router();
@@ -11,7 +12,7 @@ router.get("/", (req, res) => {
 });
 
 // Obter uma categoria por id - publico
-router.get("/:id", (req, res) => {
+router.get("/:id", [check("id").custom(existeCategoria)], (req, res) => {
   res.json("get - id");
 });
 
