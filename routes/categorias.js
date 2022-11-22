@@ -9,7 +9,7 @@ const {
 } = require("../controllers/categorias");
 
 const { existeCategoriaPorId } = require("../helpers/db-validators");
-const { validarCampos, validarJWT } = require("../middlewares");
+const { validarCampos, validarJWT, esAdminRole } = require("../middlewares");
 
 const router = Router();
 
@@ -43,6 +43,7 @@ router.put(
   "/:id",
   [
     validarJWT,
+    check("nombre", "O nome é obrigatório.").not().isEmpty(),
     check("id", "Não é um ID válido").isMongoId(),
     check("id").custom(existeCategoriaPorId),
     validarCampos,
@@ -55,6 +56,7 @@ router.delete(
   "/:id",
   [
     validarJWT,
+    esAdminRole,
     check("id", "Não é um ID válido").isMongoId(),
     check("id").custom(existeCategoriaPorId),
     validarCampos,
