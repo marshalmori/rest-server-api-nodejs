@@ -2,8 +2,6 @@ const { response, request } = require("express");
 const bcryptjs = require("bcryptjs");
 
 const Usuario = require("../models/usuario");
-const { emailExiste } = require("../helpers/db-validators");
-const usuario = require("../models/usuario");
 
 const usuariosGet = async (req = request, res = response) => {
   const { limite = 5, desde = 0 } = req.query;
