@@ -1,5 +1,4 @@
 const { response } = require("express");
-const role = require("../models/role");
 
 const esAdminRole = (req, res = response, next) => {
   if (!req.usuario) {
@@ -8,10 +7,9 @@ const esAdminRole = (req, res = response, next) => {
     });
   }
 
-  const { role, nombre } = req.usuario;
-  console.log(role);
+  const { rol, nombre } = req.usuario;
 
-  if (role !== "ADMIN_ROLE") {
+  if (rol !== "ADMIN_ROLE") {
     return res.status(401).json({
       msg: `${nombre} não é um administrador.`,
     });
