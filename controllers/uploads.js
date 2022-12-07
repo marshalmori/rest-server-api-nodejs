@@ -49,7 +49,8 @@ const mostrarImagen = async (req, res = response) => {
     }
   }
 
-  res.json({ msg: "Falta o placeholder" });
+  const pathPlaceholder = path.join(__dirname, "../assets", "no-image.jpg");
+  res.sendFile(pathPlaceholder);
 };
 
 const cargarArchivo = async (req, res = response) => {
